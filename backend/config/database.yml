@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV.fetch("DB_USER") %>
+  password: <%= ENV.fetch("DB_PASS") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: book_ticket_development
+
+test:
+  <<: *default
+  database: book_ticket_test
+
+production:
+  <<: *default
+  database: book_ticket_production
+  username: book_ticket
+  password: <%= ENV["BOOK_TICKET_DATABASE_PASSWORD"] %>
