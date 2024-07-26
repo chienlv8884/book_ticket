@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   frontend:
-    image: node:19
+    image: node:20
     volumes:
       - .:/app
     ports:
@@ -9,5 +9,5 @@ services:
     working_dir: /app
     command: tail -F log
   backend:
-    image: node:19
+    image: node:20
     command: tail -F log
