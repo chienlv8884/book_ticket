@@ -37,7 +37,25 @@ paths:
 
 components:
   schemas:
-    TicketBook:
+    Room:
+      type: object
+      properties:
+        name:
+          type: string
+        seats:
+          type: integer
+          format: int64
+          example: 40
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+          format: int64
+          example: 10
+    Ticket:
       required:
         - name
       type: object
@@ -58,12 +76,16 @@ components:
         price:
           type: string
           example: 10
-    TicketSucess:
-      properties:
-        id:
+        userpay:
           type: integer
           format: int64
           example: 10
-        code:
+        confirm:
+          type: boolean
+        grade:
+          type: integer
+          example: 1
+        qr:
           type: string
-          example: 123456789
+          format: int64
+          example: 10
