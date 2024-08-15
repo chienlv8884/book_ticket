@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, OneToMany } from "typeorm"
 import {Ticket} from './Ticket'
 
-@Entity({name: 'Rooms'})
+@Entity({schema: 'public', name: 'Rooms'})
 export class Room {
 
     @PrimaryGeneratedColumn()

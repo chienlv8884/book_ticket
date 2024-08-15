@@ -10,19 +10,10 @@ import {User} from './entities/User'
 import {Room} from './entities/Room'
 import {Ticket} from './entities/Ticket'
 
-const DbModule = TypeOrmModule.forRoot({
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'user1',
-  password: 'password',
-  database: 'book_ticket_development',
-  entities: [User, Room, Ticket],
-  synchronize: true,
-});
+import {config} from './config/ormconfig'
 
 @Module({
-  imports: [DbModule, TypeOrmModule.forFeature([User,Ticket,Room])],
+  imports: [TypeOrmModule.forRoot(config), TypeOrmModule.forFeature([User,Ticket,Room])],
   controllers: [AppController, UserController, RoomController, TicketController],
   providers: [AppService],
 })
