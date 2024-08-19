@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 @Entity({schema: 'public',name: 'Users'})
 export class User {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number
 
     @Column({nullable: true})
@@ -11,4 +11,10 @@ export class User {
 
     @Column({nullable: true})
     email: string
+
+    @Column({nullable: true})
+    code: string
+
+    @Column({nullable: true})
+    access_token: string
 }
